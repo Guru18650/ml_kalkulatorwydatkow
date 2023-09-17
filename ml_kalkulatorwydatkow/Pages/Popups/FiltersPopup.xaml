@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ml_kalkulatorwydatkow.FiltersPopup">
+    <StackLayout WidthRequest="350">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Od" Margin="10,0,10,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0"/>
+            <DatePicker Grid.Row="0" Grid.Column="1" Margin="10,0,10,10" x:Name="dFrom" Date="{Binding Source={x:Reference dTo}, Path=MinimumDate}"></DatePicker>
+            <Label Text="Do" Margin="10,0,10,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1"/>
+            <DatePicker Grid.Row="1" Grid.Column="1" Margin="10,0,10,10" x:Name="dTo" Date="{Binding Source={x:Reference dFrom}, Path=MaximumDate}"></DatePicker>
+
+            <Label Text="Sortowanie" Margin="10,0,10,10" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2"/>
+            <Picker Margin="10,0,10,10" x:Name="sortType" SelectedItem="Data" Grid.Column="1" Grid.Row="2">
+                <Picker.Items>
+                    <x:String>Data</x:String>
+                    <x:String>Kwota</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Kolejność" Margin="10,0,10,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="3"/>
+            <Picker Margin="10,0,10,10" x:Name="sortDirection" SelectedItem="Data" Grid.Column="1" Grid.Row="3">
+                <Picker.Items>
+                    <x:String>Malejąco</x:String>
+                    <x:String>Rosnąco</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Kategoria" Margin="10,0,10,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="4" Grid.Column="0"/>
+            <Picker Margin="10,0,10,10" x:Name="typeEntry" SelectedItem="Wszystko" Grid.Row="4" Grid.Column="1">
+                <Picker.Items>
+                    <x:String>Wszystko</x:String>
+                    <x:String>Jedzenie</x:String>
+                    <x:String>Transport</x:String>
+                    <x:String>Rozrywka</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Limit" Margin="10,0,10,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="5"/>
+            <Entry Keyboard="Numeric" Text="10" Margin="10,0,10,10" x:Name="limitEntry" Grid.Column="1" Grid.Row="5"/>
+        </Grid>
+        
+        <Button Text="Zastosuj" Margin="10,0,10,5" x:Name="btn_update" Clicked="btn_update_Clicked"/>
+        </StackLayout>
+</toolkit:Popup>

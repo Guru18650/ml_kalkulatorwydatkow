@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ml_kalkulatorwydatkow.Statystyki"
+             xmlns:local="clr-namespace:ml_kalkulatorwydatkow"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             Title="Statystyki">
+
+    <ContentPage.BindingContext>
+        <local:MainPageVM/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <lvc:PieChart Series="{Binding Series}" Title="Statystyki"/>
+    </ScrollView>
+</ContentPage>
