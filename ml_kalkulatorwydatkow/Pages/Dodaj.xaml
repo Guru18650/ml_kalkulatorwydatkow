@@ -22,6 +22,7 @@
                 <x:String>Jedzenie</x:String>
                 <x:String>Transport</x:String>
                 <x:String>Rozrywka</x:String>
+                <x:String>Inne</x:String>
             </Picker.Items>
         </Picker>
         <Button Text="Dodaj"  Margin="10,15,10,0" x:Name="Add" Clicked="Add_Clicked"></Button>

@@ -16,7 +16,7 @@ public partial class Dodaj : ContentPage
 
     private async void Add_Clicked(object sender, EventArgs e)
     {
-		if (string.IsNullOrEmpty(nameEntry.Text) || string.IsNullOrEmpty(ammountEntry.Text) || typeEntry.SelectedIndex < 1)
+		if (string.IsNullOrEmpty(nameEntry.Text) || string.IsNullOrEmpty(ammountEntry.Text) || typeEntry.SelectedIndex < 0)
 		{
 			await DisplayAlert("B³¹d", "Wpisz poprawne dane", "ok");
 			return;

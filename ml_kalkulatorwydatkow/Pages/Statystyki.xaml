@@ -10,6 +10,6 @@
         <local:MainPageVM/>
     </ContentPage.BindingContext>
     <ScrollView>
-        <lvc:PieChart Series="{Binding Series}" Title="Statystyki"/>
+        <lvc:PieChart Series="{Binding Series}"/>
     </ScrollView>
 </ContentPage>

@@ -43,6 +43,7 @@
                     <x:String>Jedzenie</x:String>
                     <x:String>Transport</x:String>
                     <x:String>Rozrywka</x:String>
+                    <x:String>Inne</x:String>
                 </Picker.Items>
             </Picker>
             <Label Text="Limit" Margin="10,0,10,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="5"/>
