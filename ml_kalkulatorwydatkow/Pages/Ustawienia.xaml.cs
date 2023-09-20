@@ -9,7 +9,9 @@ public partial class Ustawienia : ContentPage
 	{
 		"pl-PL","en-US","de-DE","en-GB","de-CH","en-CA","en-AU"
 	};
-	public Ustawienia()
+
+
+    public Ustawienia()
 	{
 		InitializeComponent();
 		string currency = Preferences.Get("currency", "pl-PL");

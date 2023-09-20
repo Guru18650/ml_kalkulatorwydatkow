@@ -16,6 +16,7 @@ public partial class Statystyki : ContentPage
 
 }
 
+// Tworzenie wykresu
 
 public partial class MainPageVM
 {
@@ -25,6 +26,8 @@ public partial class MainPageVM
     public static IEnumerable<DEntry> filtered3 = en.Where(i => i.Category == "Rozrywka");
     public static IEnumerable<DEntry> filtered4 = en.Where(i => i.Category == "Inne");
 
+
+    // Tworzenie danych wykresu
 
     public ISeries[] Series { get; set; } = new ISeries[] {
 
