@@ -31,6 +31,15 @@ namespace ml_kalkulatorwydatkow.Data
         public string filtr = "Wszystko";
         public string sortType = "Data";
         public int limit = 10;
+        int x = 0;
+        public List<DEntry> filtered;
+        List<DEntry> testData = new List<DEntry>()
+        {
+            new DEntry {Name="Bilet miesięczny", Ammount=50, Category="Transport", Date=DateTime.Today.AddDays(-1)},
+            new DEntry {Name="Pizza", Ammount=50, Category="Jedzenie", Date=DateTime.Today.AddDays(-1)},
+            new DEntry {Name="Kino", Ammount=25, Category="Rozrywka", Date=DateTime.Today.AddDays(-1)},
+            new DEntry {Name="Dentysta", Ammount=300, Category="Inne", Date=DateTime.Today.AddDays(-1)},
+        };
 
         /**********************************************
             nazwa funkcji: Init
@@ -46,18 +55,10 @@ namespace ml_kalkulatorwydatkow.Data
             var dbPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "db.db3");
             db = new SQLiteConnection(dbPath);
             db.CreateTable<DEntry>();
-            if (db.Table<DEntry>().Count() == 0)
-            {
-                var testEntry = new DEntry()
-                {
-                    Name = "Test",
-                    Ammount = -20f,
-                    Date = new DateTime(2023, 2, 5),
-                    Category = "Transport"
-                };
-                var result = db.CreateTable<DEntry>();
-                db.Insert(testEntry);
-            }
+            x = db.Table<DEntry>().Count();
+            if (x == 0)
+                db.InsertAll(testData);
+
         }
         public List<DEntry> getEntries()
         {
@@ -74,10 +75,10 @@ namespace ml_kalkulatorwydatkow.Data
                 from = DateTime.MinValue;
             if (to == new DateTime())
                 to = DateTime.MaxValue;
-            var filtered = entries.Where(i => i.Date >= from && i.Date <= to);
+            filtered = entries.Where(i => i.Date >= from && i.Date <= to).ToList();
             if (filtr != "Wszystko")
-                filtered = filtered.Where(i => i.Category == filtr);
-            return filtered.Take(limit).ToList();
+                filtered = filtered.Where(i => i.Category == filtr).ToList();
+            return filtered;
         }
 
         public void addEntry(DEntry e)
@@ -96,6 +97,9 @@ namespace ml_kalkulatorwydatkow.Data
             db.Delete(e); 
         }
 
+        public void clearTable() { 
+            db.DeleteAll<DEntry>();
+        }
 
     }
 

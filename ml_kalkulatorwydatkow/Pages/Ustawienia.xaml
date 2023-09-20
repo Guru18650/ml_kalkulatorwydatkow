@@ -28,5 +28,6 @@
         </Grid>
 
         <Button Text="Zastosuj" Margin="10,0,10,5" x:Name="btn_update" Clicked="btn_update_Clicked"/>
+        <Button Text="Wyczyść pamięć" Margin="10,0,10,5" Background="Red" x:Name="btn_clear" Clicked="btn_clear_Clicked"/>
     </StackLayout>
 </ContentPage>
