@@ -66,7 +66,7 @@ namespace ml_kalkulatorwydatkow.Data
             if (sortType == "Data")
                 entries.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
             else
-                entries.OrderBy(entry => entry.Ammount).ToList();
+                entries = entries.OrderBy(entry => entry.Ammount).ToList();
 
             if (direction == "Malejąco")
                 entries.Reverse();
