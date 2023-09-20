@@ -3,19 +3,19 @@ using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using ml_kalkulatorwydatkow.Data;
+using System.Collections.ObjectModel;
 
 namespace ml_kalkulatorwydatkow;
 
 public partial class Statystyki : ContentPage
 {
-	public Statystyki()
-	{
+    public Statystyki()
+    {
 
         InitializeComponent();
-	}
+    }
 
 }
-
 
 public partial class MainPageVM
 {
@@ -26,11 +26,12 @@ public partial class MainPageVM
     public static IEnumerable<DEntry> filtered4 = en.Where(i => i.Category == "Inne");
 
 
-    public ISeries[] Series { get; set; } = new ISeries[] {
+    public ObservableCollection<ISeries> Series { get; set; } = new ObservableCollection<ISeries> {
 
         new PieSeries<double> {Values = new double[] { filtered1.Count() }, DataLabelsFormatter = point => $"Jedzenie ({filtered1.Count()})", DataLabelsPaint = new SolidColorPaint(SKColors.Black),},
         new PieSeries<double> {Values = new double[] { filtered2.Count() }, DataLabelsFormatter = point => $"Transport ({filtered2.Count()})", DataLabelsPaint = new SolidColorPaint(SKColors.Black),},
         new PieSeries<double> {Values = new double[] { filtered3.Count() }, DataLabelsFormatter = point => $"Rozrywka ({filtered3.Count()})", DataLabelsPaint = new SolidColorPaint(SKColors.Black),},
         new PieSeries<double> {Values = new double[] { filtered4.Count() }, DataLabelsFormatter = point => $"Inne ({filtered4.Count()})", DataLabelsPaint = new SolidColorPaint(SKColors.Black),},
-   };
+
+};
 }

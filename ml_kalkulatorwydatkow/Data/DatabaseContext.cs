@@ -76,6 +76,17 @@ namespace ml_kalkulatorwydatkow.Data
             db.Insert(e);
         }
 
+        public void updateEntry(DEntry e) {
+            Init();
+            db.Update(e);
+        }
+
+        public void deleteEntry(DEntry e) {  
+            Init(); 
+            db.Delete(e); 
+        }
+
+
     }
 
 }

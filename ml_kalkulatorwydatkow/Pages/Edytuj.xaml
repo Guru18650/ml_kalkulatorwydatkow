@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ml_kalkulatorwydatkow.Edytuj"
+             Title="Edytuj">
+    <VerticalStackLayout>
+        <Label 
+            Margin="0,10,0,0"
+            Text="Edytuj wpis"
+            FontSize="30" 
+            HorizontalOptions="Center" />
+        <Label Text="Nazwa" Margin="13,20,10,-10"></Label>
+        <Entry Margin="10,0,10,0" x:Name="nameEntry"></Entry>
+        <Label Text="Kwota" Margin="13,0,10,-10"></Label>
+        <Entry Margin="10,0,10,0" Keyboard="Numeric" x:Name="ammountEntry"></Entry>
+        <Label Text="Data" Margin="13,0,10,-10"></Label>
+        <DatePicker Margin="10,0,10,0" x:Name="dateEntry"></DatePicker>
+        <Label Text="Kategoria" Margin="13,0,10,-10"></Label>
+        <Picker Margin="10,0,10,0" x:Name="typeEntry">
+            <Picker.Items>
+                <x:String>Jedzenie</x:String>
+                <x:String>Transport</x:String>
+                <x:String>Rozrywka</x:String>
+                <x:String>Inne</x:String>
+            </Picker.Items>
+        </Picker>
+        <Button Text="Edytuj"  Margin="10,15,10,0" x:Name="Update" Clicked="Update_Clicked"></Button>
+        <Button Text="Usuń" BackgroundColor="Red" Margin="10,15,10,0" x:Name="Delete" Clicked="Delete_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>

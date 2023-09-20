@@ -26,5 +26,16 @@ public partial class Lista : ContentPage
         ilosc.Text = "Iloœæ: " + entries.Count;
         suma.Text = "Suma: " + entries.Sum(entry => entry.Ammount);
         entryListView.ItemsSource = entries;
-    }    
+    }
+
+    private async void entryListView_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        DEntry selectedEntry = e.Item as DEntry;
+        if (selectedEntry != null)
+        {
+            await Navigation.PushAsync(new Edytuj(selectedEntry));
+            Navigation.RemovePage(this);
+        }
+
+    }
 }

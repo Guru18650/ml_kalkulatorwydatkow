@@ -15,7 +15,7 @@
             <Label Text="Ilość: 5" FontSize="20" Margin="5,0,5,0" HorizontalOptions="Center" x:Name="ilosc"/>
             <Label Text="Ilość: 5" FontSize="20" Margin="5,0,5,0" Grid.Column="1" HorizontalOptions="Center" x:Name="suma"/>
         </Grid>
-        <ListView x:Name="entryListView" >
+        <ListView x:Name="entryListView" ItemTapped="entryListView_ItemTapped" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
