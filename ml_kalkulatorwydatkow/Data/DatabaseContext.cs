@@ -31,6 +31,16 @@ namespace ml_kalkulatorwydatkow.Data
         public string filtr = "Wszystko";
         public string sortType = "Data";
         public int limit = 10;
+
+        /**********************************************
+            nazwa funkcji: Init
+            opis funkcji: Inicializuje połączenie z bazą danych i wybiera tabele
+            parametry: brak, funkcja void
+            zwracany typ i opis: brak, funkcja void
+            autor: 2137
+        ***********************************************/
+
+
         void Init()
         {
             var dbPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "db.db3");
