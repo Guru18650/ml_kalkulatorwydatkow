@@ -17,6 +17,7 @@ public partial class Statystyki : ContentPage
 
 }
 
+
 public partial class MainPageVM
 {
     public static List<DEntry> en = App.db.getEntries();
@@ -25,6 +26,8 @@ public partial class MainPageVM
     public static IEnumerable<DEntry> filtered3 = en.Where(i => i.Category == "Rozrywka");
     public static IEnumerable<DEntry> filtered4 = en.Where(i => i.Category == "Inne");
 
+
+    // Tworzenie danych wykresu
 
     public ObservableCollection<ISeries> Series { get; set; } = new ObservableCollection<ISeries> {
 
